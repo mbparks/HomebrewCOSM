@@ -1,0 +1,21 @@
+<html>
+<head>
+	<link rel="stylesheet" href="sensor.css">
+</head>
+<body>
+
+<h4>Light Sensor Log</h4>
+
+<?php
+$fp = fopen("sensorLog.txt", "r");
+$current_line = fgets($fp);
+while (!feof($fp)) {
+  // process current line
+  $current_line = fgets($fp);
+  echo "<p> $current_line </p>\n";
+}
+fclose($fp);
+?>
+
+</body>
+</html>
