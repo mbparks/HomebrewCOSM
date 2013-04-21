@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel="stylesheet" href="sensor.css">
+  <link rel="stylesheet" href="sensor.css">
 </head>
 <body>
 
