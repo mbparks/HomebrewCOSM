@@ -21,6 +21,7 @@ String lines[];
 int numRecords =  0;
 int[] data;
 int graphPosition = 0;
+int prevGraphPosition = 0;
 
 
 
@@ -62,6 +63,9 @@ void drawGraph() {
       stroke(0, 255, 0);
     }
     line(graphPosition, height, graphPosition, height - lineHeight);
+    stroke(255, 255, 255);
+    line(graphPosition, 110, graphPosition, 100);
+    prevGraphPosition = graphPosition;
     if (graphPosition >= width) {
       graphPosition = 0;
     }
@@ -94,8 +98,9 @@ void getData() {
 
 
 void clearScreen() {
-  stroke(0,0,0);
+  stroke(0, 0, 0);
   line(graphPosition, height, graphPosition, 100);
+  line(prevGraphPosition, 110, prevGraphPosition, 100);
 }
 
 
