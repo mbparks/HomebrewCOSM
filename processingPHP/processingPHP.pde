@@ -54,6 +54,7 @@ void drawGraph() {
   graphPosition = 0;
   for (int i = 0 ; i < data.length; i++) {
     int lineHeight = data[i]/2;
+    clearScreen();
     if (lineHeight < 100) {
       stroke(255, 0, 0);
     }
@@ -63,7 +64,6 @@ void drawGraph() {
     line(graphPosition, height, graphPosition, height - lineHeight);
     if (graphPosition >= width) {
       graphPosition = 0;
-      background(0,0,0);
     }
     else {
       graphPosition += 5;
@@ -76,7 +76,7 @@ void drawGraph() {
 
 
 void getData() {
-  lines = loadStrings("http://www.your-url.com/SensorLog.txt");
+  lines = loadStrings("http://www.YOUR-URL.COM/sensorLog.txt");
   numRecords = lines.length;
   data = new int[numRecords];
 
@@ -91,6 +91,12 @@ void getData() {
   }
 }
 
+
+
+void clearScreen() {
+  stroke(0,0,0);
+  line(graphPosition, height, graphPosition, 100);
+}
 
 
 
