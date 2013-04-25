@@ -20,8 +20,8 @@ Client c;
 String lines[];
 int numRecords =  0;
 int[] data;
-int graphPosition = 0;
-int prevGraphPosition = 0;
+int graphPosition = 795;
+int prevGraphPosition = 795;
 
 
 
@@ -56,21 +56,21 @@ void drawGraph() {
   for (int i = 0 ; i < data.length; i++) {
     int lineHeight = data[i]/2;
     clearScreen();
-    if (lineHeight < 100) {
+    if (lineHeight < 50) {
       stroke(255, 0, 0);
     }
     else {
       stroke(0, 255, 0);
     }
     line(graphPosition, height, graphPosition, height - lineHeight);
-    stroke(255, 255, 255);
-    line(graphPosition, 110, graphPosition, 100);
+    //stroke(255, 255, 255);    enable if you want white tracker arrow on top
+    //line(graphPosition, 110, graphPosition, 100);   enable if you want white tracker arrow on top
     prevGraphPosition = graphPosition;
-    if (graphPosition >= width) {
-      graphPosition = 0;
+    if (graphPosition <= 0) {
+      graphPosition = 795;
     }
     else {
-      graphPosition += 5;
+      graphPosition -= 5;
     }
   }
 }
@@ -100,7 +100,8 @@ void getData() {
 void clearScreen() {
   stroke(0, 0, 0);
   line(graphPosition, height, graphPosition, 100);
-  line(prevGraphPosition, 110, prevGraphPosition, 100);
+  line(0, height, 0, 100);
+  //line(prevGraphPosition, 110, prevGraphPosition, 100);    enable if you want white tracker arrow on top
 }
 
 
